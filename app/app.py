@@ -75,9 +75,13 @@ if query:
                 response = pipeline.recommend(query)
                 st.success("✅ Recommendations fetched successfully!")
 
-                # Show recommendations (Markdown enabled so **bold** etc. works)
+                # Show recommendations as a paragraph with white text
                 st.markdown("### 🌟 Recommended Anime for You:")
-                st.markdown(response)  # <-- FIXED: shows Markdown properly
+                paragraph_text = " ".join(response.split('\n')) + " 🎉"
+                st.markdown(
+                    f"<p style='color:#FFFFFF; font-size:16px;'>{paragraph_text}</p>",
+                    unsafe_allow_html=True
+                )
 
             except Exception as e:
                 st.error(f"❌ Failed to fetch recommendations: {e}")
@@ -105,3 +109,4 @@ st.markdown(
 #streamlit run app/app.py
 #streamlit run app/app.py --server.port 8000
 #streamlit run app/app.py --server.address 0.0.0.0 --server.port 8501
+

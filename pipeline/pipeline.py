@@ -3,6 +3,8 @@ from src.recommender import AnimeRecommender
 from config.config import GROQ_API_KEY,MODEL_NAME
 from utils.logger import get_logger
 from utils.custom_exception import CustomException
+import os
+from groq import GroqClient
 
 logger = get_logger(__name__)
 
@@ -10,6 +12,8 @@ class AnimeRecommendationPipeline:
     def __init__(self,persist_dir="chroma_db"):
         try:
             logger.info("Intializing Recommdation Pipeline")
+            
+            self.client = GroqClient(api_key=os.getenv("GROQ_API_KEY"))
 
             vector_builder = VectorStoreBuilder(csv_path="" , persist_dir=persist_dir)
 
