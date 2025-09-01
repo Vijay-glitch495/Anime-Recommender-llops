@@ -1,0 +1,7 @@
+env/
+logs/
+ANIME_RECOMMENDER.egg-info/
+.env
+enivironment.yml
+__pycache__/
+*.pyc
