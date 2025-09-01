@@ -5,6 +5,25 @@ on:
     branches: [main, master]  # Change to your branch name
   pull_request:
     branches: [main, master]
+  
+  # Manual trigger - uncomment to add "Run workflow" button in GitHub
+  # workflow_dispatch:
+  
+  # Scheduled trigger - uncomment to run daily at 2 AM UTC
+  # schedule:
+  #   - cron: '0 2 * * *'
+  
+  # Release trigger - uncomment to trigger on new releases
+  # release:
+  #   types: [published]
+  
+  # Path-specific trigger - uncomment to only trigger when specific files change
+  # push:
+  #   paths:
+  #     - 'app/**'
+  #     - 'Dockerfile'
+  #     - 'requirements.txt'
+
 
 jobs:
   dockerbuild:
