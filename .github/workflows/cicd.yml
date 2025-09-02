@@ -72,3 +72,9 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/anime-recommender-app:latest
     - name: Image digest
       run: echo ${{ steps.build-and-publish.outputs.digest }}
+
+
+
+
+
+#docker run --platform linux/amd64 -p 8501:8501 vikbommi/anime-recommender-app:latest 
